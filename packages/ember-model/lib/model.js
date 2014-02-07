@@ -107,7 +107,7 @@ Ember.Model = Ember.Object.extend(Ember.Evented, {
   },
 
   load: function(id, hash) {
-    var data = {};
+    var data = get(this, '_data') || {};
     data[get(this.constructor, 'primaryKey')] = id;
     set(this, '_data', Ember.merge(data, hash));
     this.getWithDefault('_dirtyAttributes', []).clear();
