@@ -25,7 +25,7 @@ Ember.RecordArray = Ember.ArrayProxy.extend(Ember.Evented, {
   materializeData: function(klass, data) {
     var self = this;
     return Ember.A(data.map(function(el) {
-      return klass.findFromCacheOrLoad(el, self.container); // FIXME
+      return klass.findFromCacheOrLoad(el || {}, self.container); // FIXME
     }));
   },
 
